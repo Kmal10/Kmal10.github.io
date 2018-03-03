@@ -1,7 +1,5 @@
 document.querySelector('.button').addEventListener('click', function() {
   var task = document.createElement('input');
-  (task).height = "10px";
-  (task).width = "30px";
   (task).style.color = "gray";
   (task).style.fontStyle = "italic";
   (task).setAttribute("type", "text");
@@ -10,8 +8,6 @@ document.querySelector('.button').addEventListener('click', function() {
   document.querySelector('.div').appendChild(task);
 
   var description = document.createElement('input');
-  (description).height = "10px";
-  (description).width = "30px";
   (description).style.color = "gray";
   (description).style.fontStyle = "italic";
   (description).setAttribute("type", "text");
@@ -21,8 +17,6 @@ document.querySelector('.button').addEventListener('click', function() {
   document.querySelector('.secondDiv').appendChild(description);
 
   var fromWhatTime = document.createElement('input');
-  (fromWhatTime).height = "10px";
-  (fromWhatTime).width = "30px";
   (fromWhatTime).style.fontStyle = "italic";
   (fromWhatTime).style.color = "gray";
   (fromWhatTime).setAttribute("type", "text");
@@ -31,8 +25,6 @@ document.querySelector('.button').addEventListener('click', function() {
   document.querySelector('.thirdDiv').appendChild(fromWhatTime);
 
   var toWhatTime = document.createElement('input');
-  (toWhatTime).height = "10px";
-  (toWhatTime).width = "30px";
   (toWhatTime).style.fontStyle = "italic";
   (toWhatTime).style.color = "gray";
   (toWhatTime).setAttribute("type", "text");
@@ -43,8 +35,6 @@ document.querySelector('.button').addEventListener('click', function() {
 
   var submitButton = document.createElement('button');
   (submitButton).textContent = "Submit!";
-  (submitButton).height = "20px";
-  (submitButton).width = "40px";
   (submitButton).style.backgroundColor = "blue";
   (submitButton).style.color = "white";
   document.querySelector('.fifthDiv').appendChild(submitButton);
@@ -57,6 +47,32 @@ document.querySelector('.button').addEventListener('click', function() {
   (description).style.display = "none";
   (fromWhatTime).style.display = "none";
   (toWhatTime).style.display = "none";
+  (submitButton).style.display = "none";
 
+  var alertTask = (task).value;
+
+  if((alertTask).value = "none") {
+    var alertNoTask = document.createElement('p');
+    (alertNoTask).textContent = 'Please enter the name of your task!';
+    document.querySelector('.div').appendChild(alertNoTask);
+    (submitButton).style.display = "";
+  } else if((alertTask).value = "") {
+    var alertTaskTwo = document.createElement('p');
+    (alertTaskTwo).textContent = 'Thanks!';
+    document.querySelector('.div').appendChild(alertTaskTwo);
+}
+var alertDescription = (description).value;
+
+if((alertDescription).value = "none") {
+  var alertNoDescription = document.createElement('p');
+  (alertNoDescription).textContent = 'Please enter a description!';
+  document.querySelector('.secondDiv').appendChild(alertNoDescription);
+  (submitButton).style.display = "";
+} else if((alertDescription).value = "") {
+  var alertDescriptionTwo = document.createElement('p');
+  (alertDescriptionTwo).textContent = 'Thanks!';
+  document.querySelector('.secondDiv').appendChild(alertDescriptionTwo);
+}
+var 
 });
 });
