@@ -6,31 +6,41 @@
   </head>
 
   <body>
-    <button class="button"><h1>+</h1></button>
+    <div class="container">
+      <div id="raiseInput"></div>
+
+      <button class="plusButton"><h1>+</h1></button>
+
+      <!-- Create Task Form -->
+      <div class="taskFormDiv">
+        <br>
+        <input class="checkBox" type="checkbox" style="width:20px;height:20px;"></input>
+        <span class="break">Are you creating a break?</span>
+        <br>
+        <br>
+        <input type="text" placeholder="Title" class="title"></input>
+        <br>
+        <br>
+        <input type="text" placeholder="Description" class="description"></input>
+        <br>
+        <br>
+        <input type="time" placeholder="Start" class="start"></input>
+        <input type="time" placeholder="End" class="end"></input>
+        <br>
+        <br>
+        <button class="createTaskButton"><h3>Create Task</h3></button>
+      </div>
+
+      <br>
+      <br>
+      <br>
 
 
+      <div class="tasks">
+      </div>
 
-  <div class="div">
+
   </div>
-  <br>
-  <div class="secondDiv">
-  </div>
-  <br>
-  <div class="thirdDiv">
-  </div>
-  <br>
-  <div class="fourthDiv">
-  </div>
-  <br>
-  <div class="fifthDiv">
-  </div>
-
-  <form class="myForm fname">
-
-  </form>
-
-
-
   <script src="script.js"></script>
 
   </body>

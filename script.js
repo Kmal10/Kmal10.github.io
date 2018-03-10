@@ -1,78 +1,112 @@
-document.querySelector('.button').addEventListener('click', function() {
-  var task = document.createElement('input');
-  (task).style.color = "gray";
-  (task).style.fontStyle = "italic";
-  (task).setAttribute("type", "text");
-  (task).setAttribute("placeholder", "First Task!");
-  var taskUserInput = (task).value;
-  document.querySelector('.div').appendChild(task);
-
-  var description = document.createElement('input');
-  (description).style.color = "gray";
-  (description).style.fontStyle = "italic";
-  (description).setAttribute("type", "text");
-  (description).setAttribute("placeholder", "Description");
-  var descriptionUserInput = document.getElementById(description);
-  descriptionUserInput = (description).value;
-  document.querySelector('.secondDiv').appendChild(description);
-
-  var fromWhatTime = document.createElement('input');
-  (fromWhatTime).style.fontStyle = "italic";
-  (fromWhatTime).style.color = "gray";
-  (fromWhatTime).setAttribute("type", "text");
-  (fromWhatTime).setAttribute("placeholder", "From what time");
-  var fromWhatTimeUserInput = (fromWhatTime).value;
-  document.querySelector('.thirdDiv').appendChild(fromWhatTime);
-
-  var toWhatTime = document.createElement('input');
-  (toWhatTime).style.fontStyle = "italic";
-  (toWhatTime).style.color = "gray";
-  (toWhatTime).setAttribute("type", "text");
-  (toWhatTime).setAttribute("placeholder", "To what time");
-  var toWhatTimeUserInput = (toWhatTime).value;
-  document.querySelector('.fourthDiv').appendChild(toWhatTime);
-
-
-  var submitButton = document.createElement('button');
-  (submitButton).textContent = "Submit!";
-  (submitButton).style.backgroundColor = "blue";
-  (submitButton).style.color = "white";
-  document.querySelector('.fifthDiv').appendChild(submitButton);
-
-
-
-  (submitButton).addEventListener('click', function() {
-
-  (task).style.display = "none";
-  (description).style.display = "none";
-  (fromWhatTime).style.display = "none";
-  (toWhatTime).style.display = "none";
-  (submitButton).style.display = "none";
-
-  var alertTask = (task).value;
-
-  if((alertTask).value = "none") {
-    var alertNoTask = document.createElement('p');
-    (alertNoTask).textContent = 'Please enter the name of your task!';
-    document.querySelector('.div').appendChild(alertNoTask);
-    (submitButton).style.display = "";
-  } else if((alertTask).value = "") {
-    var alertTaskTwo = document.createElement('p');
-    (alertTaskTwo).textContent = 'Thanks!';
-    document.querySelector('.div').appendChild(alertTaskTwo);
-}
-var alertDescription = (description).value;
-
-if((alertDescription).value = "none") {
-  var alertNoDescription = document.createElement('p');
-  (alertNoDescription).textContent = 'Please enter a description!';
-  document.querySelector('.secondDiv').appendChild(alertNoDescription);
-  (submitButton).style.display = "";
-} else if((alertDescription).value = "") {
-  var alertDescriptionTwo = document.createElement('p');
-  (alertDescriptionTwo).textContent = 'Thanks!';
-  document.querySelector('.secondDiv').appendChild(alertDescriptionTwo);
-}
-var 
+// When user clicks + button
+document.querySelector('.plusButton').addEventListener('click', function() {
+  document.querySelector('.taskFormDiv').style.display = "block";
 });
+
+// When user clicks "This is a break"
+
+document.querySelector('.checkBox').addEventListener('click', function() {
+  document.querySelector('.title').style.display = 'none';
+  document.querySelector('.description').style.display = 'none';
+  document.getElementById("raiseInput").style.marginTop = "-80px";
+  document.querySelector('.plusButton').style.display = 'none';
+  document.querySelector('.checkbox').style.display = 'none';
+  document.querySelector('.break').style.display = 'none';
+
+    var taskElement = document.createElement('div');
+    (taskElement).classList.add("task");
+    document.querySelector('.tasks').appendChild(taskElement);
+
+
+
+
+    var startTimeForBreak = document.querySelector('.start').value;
+    var startTimeElementForBreak = document.createElement('p');
+    (startTimeElementForBreak).classList.add("startTimeElementForBreak");
+    (startTimeElementForBreak).style.fontFamily = 'monaco';
+    (startTimeElementForBreak).style.fontWeight = 'bold';
+    (startTimeElementForBreak).textContent = (startTimeForBreak);
+    (taskElement).appendChild(startTimeElementForBreak);
+
+  var endTimeForBreak = document.querySelector('.end').value;
+  var endTimeElementForBreak = document.createElement('p');
+  (endTimeElementForBreak).classList.add("endTimeElementForBreak");
+  (endTimeElementForBreak).style.fontFamily = 'monaco';
+  (endTimeElementForBreak).style.fontWeight = 'bold';
+  (endTimeElementForBreak).textContent = (endTimeForBreak);
+  (taskElement).appendChild(endTimeElementForBreak);
+
+  var breakText = document.createElement('p');
+  (breakText).classList.add("breakText");
+    (breakText).textContent = 'Break';
+    (taskElement).appendChild(breakText);
+
+
+});
+
+// When user clicks "Create Task"
+document.querySelector('.createTaskButton').addEventListener('click', function() {
+
+  var taskElement = document.createElement('div');
+    (taskElement).classList.add("task");
+    document.querySelector('.tasks').appendChild(taskElement);
+
+
+    var checkbox = document.createElement('input');
+    (checkbox).setAttribute("type", "checkbox");
+    (checkbox).classList.add("checkbox");
+    (taskElement).appendChild(checkbox);
+
+
+
+  var titleValue = document.querySelector('.title').value;
+  var titleElement = document.createElement('p');
+  (titleElement).classList.add("titleElement");
+  (titleElement).style.fontFamily = 'monaco';
+  (titleElement).style.fontWeight = 'bold';
+  (titleElement).style.paddingRight = '600px';
+  (titleElement).textContent = titleValue;
+  (taskElement).appendChild(titleElement);
+
+
+
+  var descriptionValue = document.querySelector('.description').value;
+  var descriptionElement = document.createElement('p');
+  (descriptionElement).textContent = descriptionValue;
+
+
+
+  var startValue = document.querySelector('.start').value;
+  var startElement = document.createElement('p');
+  (startElement).classList.add("startTime");
+  (startElement).style.fontFamily = 'monaco';
+  (startElement).style.fontWeight = 'bold';
+  (startElement).style.paddingLeft = "100px";
+  (startElement).textContent = startValue;
+  (taskElement).appendChild(startElement);
+
+
+  var colon = document.createElement('p');
+  (colon).classList.add("colon");
+  (colon).textContent = '--';
+  (colon).style.fontFamily = 'monaco';
+  (colon).style.fontWeight = 'bold';
+  (taskElement).appendChild(colon);
+
+
+
+  var endValue = document.querySelector('.end').value;
+  var endElement = document.createElement('p');
+  (endElement).classList.add("endTime");
+  (endElement).style.fontFamily = 'monaco';
+  (endElement).style.fontWeight = 'bold';
+  (endElement).style.paddingLeft = "25px";
+  (endElement).textContent = endValue;
+  (taskElement).appendChild(endElement);
+
+  document.querySelector('.title').value ='';
+  document.querySelector('.description').value ='';
+  document.querySelector('.start').value ='';
+  document.querySelector('.end').value ='';
+
 });
