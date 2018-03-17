@@ -31,21 +31,26 @@ document.querySelector('.checkBox').addEventListener('click', function() {
 
 });
 document.querySelector('.createBreak').addEventListener('click', function() {
-  var taskElementBreak = document.createElement('div');
-    (taskElementBreak).classList.add("taskForBreak");
-    document.querySelector('.tasks').appendChild(taskElementBreak);
+  var breaks = document.createElement('div');
+    (breaks).classList.add("taskForBreak");
+    document.querySelector('.tasks').appendChild(breaks);
 
     var checkboxForBreak = document.createElement('input');
     (checkboxForBreak).setAttribute("type", "checkbox");
-    (checkboxForBreak).classList.add("markAsDoneCheckBox");
-    (taskElementBreak).appendChild(checkbox);
+    (checkboxForBreak).classList.add("checkboxForBreak");
+    (breaks).appendChild(checkboxForBreak);
+
+    (checkboxForBreak).addEventListener('click', function() {
+      document.querySelector('.taskForBreak').style.backgroundColor = '#DCCCFF';
+
 
 
     var titleOfBreak = document.createElement('p');
     (titleOfBreak).textContent = 'Break';
     (titleOfBreak).style.fontFamily = 'monaco';
+    (titleOfBreak).style.color = 'yellow';
     (titleOfBreak).style.fontWeight = 'bold';
-    (taskElementBreak).appendChild(titleOfBreak);
+    (breaks).appendChild(titleOfBreak);
 
     var startBreak = document.querySelector('.startTimeForBreak').value;
     var startTimeElementForBreak = document.createElement('p');
@@ -54,7 +59,7 @@ document.querySelector('.createBreak').addEventListener('click', function() {
     (startTimeElementForBreak).style.fontWeight = 'bold';
     (startTimeElementForBreak).style.paddingLeft = '100px';
     (startTimeElementForBreak).textContent = (startBreak);
-    (taskElementBreak).appendChild(startTimeElementForBreak);
+    (breaks).appendChild(startTimeElementForBreak);
 
 
     var colon = document.createElement('p');
@@ -62,7 +67,7 @@ document.querySelector('.createBreak').addEventListener('click', function() {
     (colon).textContent = '--';
     (colon).style.fontFamily = 'monaco';
     (colon).style.fontWeight = 'bold';
-    (taskElementBreak).appendChild(colon);
+    (breaks).appendChild(colon);
 
 
 
@@ -73,7 +78,7 @@ document.querySelector('.createBreak').addEventListener('click', function() {
     (endTimeElementForBreak).style.fontWeight = 'bold';
     (endTimeElementForBreak).style.paddingLeft = '25px';
     (endTimeElementForBreak).textContent = (endBreak);
-    (taskElementBreak).appendChild(endTimeElementForBreak);
+    (breaks).appendChild(endTimeElementForBreak);
 
     document.querySelector('.startTimeForBreak').value ='';
     document.querySelector('.endTimeForBreak').value ='';

@@ -92,3 +92,7 @@ input{
 .endTimeElementBreak{
   display:inline-block;
 }
+.taskForBreak{
+  border: 2px solid #F08080;
+  background-color:#F6F2FF;
+}
