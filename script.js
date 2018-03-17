@@ -35,17 +35,24 @@ document.querySelector('.createBreak').addEventListener('click', function() {
     (taskElementBreak).classList.add("taskForBreak");
     document.querySelector('.tasks').appendChild(taskElementBreak);
 
+    var checkboxForBreak = document.createElement('input');
+    (checkboxForBreak).setAttribute("type", "checkbox");
+    (checkboxForBreak).classList.add("markAsDoneCheckBox");
+    (taskElementBreak).appendChild(checkbox);
+
+
     var titleOfBreak = document.createElement('p');
     (titleOfBreak).textContent = 'Break';
+    (titleOfBreak).style.fontFamily = 'monaco';
+    (titleOfBreak).style.fontWeight = 'bold';
     (taskElementBreak).appendChild(titleOfBreak);
-
 
     var startBreak = document.querySelector('.startTimeForBreak').value;
     var startTimeElementForBreak = document.createElement('p');
     (startTimeElementForBreak).classList.add("startTimeElementBreak");
     (startTimeElementForBreak).style.fontFamily = 'monaco';
     (startTimeElementForBreak).style.fontWeight = 'bold';
-    (startTimeElementForBreak).style.paddingRight = '100px';
+    (startTimeElementForBreak).style.paddingLeft = '100px';
     (startTimeElementForBreak).textContent = (startBreak);
     (taskElementBreak).appendChild(startTimeElementForBreak);
 
@@ -64,7 +71,7 @@ document.querySelector('.createBreak').addEventListener('click', function() {
     (endTimeElementForBreak).classList.add("endTimeElementBreak");
     (endTimeElementForBreak).style.fontFamily = 'monaco';
     (endTimeElementForBreak).style.fontWeight = 'bold';
-    (endTimeElementForBreak).style.paddingRight = '25px';
+    (endTimeElementForBreak).style.paddingLeft = '25px';
     (endTimeElementForBreak).textContent = (endBreak);
     (taskElementBreak).appendChild(endTimeElementForBreak);
 
@@ -209,6 +216,13 @@ if (localStorage.tasks) {
     (startElement).style.paddingLeft = "100px";
     (startElement).textContent = startValue;
     (taskElement).appendChild(startElement);
+
+    var colon = document.createElement('p');
+    (colon).classList.add("colon");
+    (colon).textContent = '--';
+    (colon).style.fontFamily = 'monaco';
+    (colon).style.fontWeight = 'bold';
+    (taskElement).appendChild(colon);
 
     var endValue = task.endTime;
     var endElement = document.createElement('p');
