@@ -68,3 +68,27 @@
   display:inline-block;
   padding-left:20px;
 }
+.checkBoxForm{
+  display:none;
+}
+.createBreak{
+  font-family:monaco;
+  color:#63E2C6;
+  display:none;
+
+}
+.createBreak:hover{
+  background-color:#5ABCB9;
+}
+input{
+  font-family:montserrat;
+  font-weight:bold;
+  font-size:15px;
+  border:2px solid #F08080;
+}
+.startTimeElementBreak{
+  display:inline-block;
+}
+.endTimeElementBreak{
+  display:inline-block;
+}

@@ -6,7 +6,41 @@
   </head>
 
   <body>
+
     <div class="container">
+
+
+      
+      <style>
+      .btn {
+          background-color: DodgerBlue;
+          border: none;
+          color: white;
+          padding: 12px 16px;
+          font-size: 16px;
+          cursor: pointer;
+      }
+
+      /* Darker background on mouse-over */
+      .btn:hover {
+          background-color: RoyalBlue;
+      }
+      </style>
+
+      <a href="page2.html"><button class="btn"><i class="fa fa-home"></i>Home, Sweet Home</button></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div id="raiseInput"></div>
 
       <button class="plusButton"><h1>+</h1></button>
@@ -18,29 +52,38 @@
         <span class="break">Are you creating a break?</span>
         <br>
         <br>
-        <input type="text" placeholder="Title" class="title"></input>
-        <br>
-        <br>
-        <input type="text" placeholder="Description" class="description"></input>
-        <br>
-        <br>
-        <input type="time" placeholder="Start" class="start"></input>
-        <input type="time" placeholder="End" class="end"></input>
-        <br>
-        <br>
-        <button class="createTaskButton"><h3>Create Task</h3></button>
+        <div class="hidingTaskWhenBreak">
+          <input type="text" placeholder="Title" class="title"></input>
+          <br>
+          <br>
+          <input type="text" placeholder="Description" class="description"></input>
+          <br>
+          <br>
+          <input type="time" class="start"></input>
+          <input type="time" class="end"></input>
+          <br>
+          <br>
+          <button class="createTaskButton"><h3>Create Task</h3></button>
+        </div>
       </div>
 
-      <br>
-      <br>
-      <br>
+      <div class="checkBoxForm">
+        <input type="time" class="startTimeForBreak"></input>
+        <input type="time" class="endTimeForBreak"></input>
+        <br><br><br>
+        <button class="createBreak"><h3>Create Break</h3></button>
 
+      </div>
+
+
+      </div>
 
       <div class="tasks">
       </div>
 
 
-  </div>
+    </div>
+
   <script src="script.js"></script>
 
   </body>
