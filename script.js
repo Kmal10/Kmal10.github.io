@@ -1,10 +1,3 @@
-//When user clicks on the "Home" Button
-
-
-
-
-
-
 // When user clicks + button
 document.querySelector('.plusButton').addEventListener('click', function() {
   document.querySelector('.taskFormDiv').style.display = "block";
@@ -29,6 +22,7 @@ document.querySelector('.checkBox').addEventListener('click', function() {
     document.querySelector('.checkBoxForm').style.display = 'none';
     document.querySelector('.createBreak').style.display = 'none';
   }
+
 
 
 
@@ -103,6 +97,10 @@ document.querySelector('.createTaskButton').addEventListener('click', function()
        var checkboxClicked = event.currentTarget;
        var task = checkboxClicked.closest('.task');
        task.style.background = 'lightGreen';
+
+      if(checkboxClicked.checked == false) {
+        (task).style.backgroundColor = 'lightSlateGrey';
+      }
      });
 
 
@@ -158,50 +156,76 @@ document.querySelector('.createTaskButton').addEventListener('click', function()
   document.querySelector('.start').value ='';
   document.querySelector('.end').value ='';
 
-
   var taskObject = {
    title: titleValue,
    startTime: startValue,
    endTime: endValue
   };
-
-  if (localStorage.tasks) {
-    var tasks = JSON.parse(localStorage.tasks);
-    for (var count = 0; count < tasks.length; count++) {
-      var taskElement = document.createElement('p');
-      var checkboxForLocalStorage = document.createElement('input');
-      (checkboxForLocalStorage).setAttribute('type', 'checkbox');
-      (checkboxForLocalStorage).classList.add("checkboxForLocalStorage");
-      document.body.appendChild(checkboxForLocalStorage);
-      var task = tasks[count];
-      taskElement.textContent = task.title + ' ' + task.startTime + ' ' + task.endTime;
-      document.body.appendChild(taskElement);
-    }
-  } else {
-    localStorage.tasks = "[]";
-  }
-
   var tasksPushedToLocalStorage = JSON.parse(localStorage.tasks);
   tasks.push(taskObject);
   localStorage.tasks= JSON.stringify(tasks);
+
+
 });
 
+if (localStorage.tasks) {
+  var tasks = JSON.parse(localStorage.tasks);
+  for (var count = 0; count < tasks.length; count++) {
+    var task = tasks[count];
 
 
-  // Create taskObject
-   // titleValue
-   // startValue
-   // endValue
-// Add taskObject to localStorage.tasks
+    var taskElement = document.createElement('div');
+      (taskElement).classList.add("task");
+      document.querySelector('.tasks').appendChild(taskElement);
+
+
+      var checkbox = document.createElement('input');
+      (checkbox).setAttribute("type", "checkbox");
+      (checkbox).classList.add("markAsDoneCheckBox");
+      (taskElement).appendChild(checkbox);
+
+      checkbox.addEventListener('click', function(event) {
+         var checkboxClicked = event.currentTarget;
+         var task = checkboxClicked.closest('.task');
+         task.style.background = 'lightGreen';
+         if(checkboxClicked.checked == false) {
+           (task).style.backgroundColor = 'lightSlateGrey';
+         }
+       });
+    var titleValue = task.title;
+    var titleElement = document.createElement('p');
+    (titleElement).classList.add("titleElement");
+    (titleElement).style.fontFamily = 'monaco';
+    (titleElement).style.fontWeight = 'bold';
+    (titleElement).style.paddingRight = '600px';
+    (titleElement).textContent = titleValue;
+    (taskElement).appendChild(titleElement);
+
+    var startValue = task.startTime;
+    var startElement = document.createElement('p');
+    (startElement).classList.add("startTime");
+    (startElement).style.fontFamily = 'monaco';
+    (startElement).style.fontWeight = 'bold';
+    (startElement).style.paddingLeft = "100px";
+    (startElement).textContent = startValue;
+    (taskElement).appendChild(startElement);
+
+    var endValue = task.endTime;
+    var endElement = document.createElement('p');
+    (endElement).classList.add("endTime");
+    (endElement).style.fontFamily = 'monaco';
+    (endElement).style.fontWeight = 'bold';
+    (endElement).style.paddingLeft = "25px";
+    (endElement).textContent = endValue;
+    (taskElement).appendChild(endElement);
 
 
 
+  }
+} else {
+  localStorage.tasks = "[]";
+}
 
-// Check localStorage to see if localStorage.tasks exists
-// if it exists
-// for each task in localStorage.tasks, append it to the Page
-// if it doesn't exist
-// create localStorage.tasks = "[]"
 
 
 /*
