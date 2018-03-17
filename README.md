@@ -4,7 +4,7 @@ Author: Kabir Malik
 
 ## Problem
 
-High school students are really stressed and tend to procrastinate!
+High school students are super stressed and tend to procrastinate!
 
 ## Solution
 
